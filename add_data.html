@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="static/js/add_data.js"></script>
+    <script src="static/js/handle_login.js"></script>
+
+    <title>Add Maintenance Records</title>
+</head>
+<body>
+    <!-- <form action="" method="post"></form> -->
+    <h1>
+        Welcome to Motor Vehicle SOA (DU)
+    </h1>
+    <h3>
+        Add the Maintenance Records
+    </h3>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    
+    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+
+
+    <form action="https://sheetdb.io/api/v1/8xgalkm2fwytr" method="post">
+        <input type="text" name="maintenance" id="maintenance">
+        <input type="text" name="who" id="who">
+        <input type="text" name="why" id="why">
+        <button type="submit">Submit</button>
+    </form>
+    <!-- <script src="https://sheetdb.io/s/f/vjdkf6w8q1m6c.js"></script> -->
+</body>
+</html>
+<!-- <script src="https://sheetdb.io/s/t/9khfst8wjqngi.js"></script> -->

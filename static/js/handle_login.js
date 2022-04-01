@@ -9,7 +9,8 @@ function initClient() {
   //   'https://www.googleapis.com/auth/drive.readonly'
   //   'https://www.googleapis.com/auth/spreadsheets'
   //   'https://www.googleapis.com/auth/spreadsheets.readonly'
-  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+//   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+  var SCOPE = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/spreadsheets.readonly';
 //   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
   gapi.client.init({

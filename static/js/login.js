@@ -63,7 +63,7 @@ function  signIn(){
     email = " ";
     password = " ";
     // alert("Done!");
-    window.location = "../../index.html";
+    window.location = "index.html";
   })
   .catch(e=>alert(e.message));
 

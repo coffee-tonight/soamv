@@ -19,10 +19,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
     console.log("User: ", user);
     logedIn = true;
-    // window.location = "../../index.html";
+    // window.location = "index.html";
 } else {
     console.log("No user is signed in.");
     logedIn = false;
-    window.location = "../../login.html";
+    window.location = "login.html";
     }
 });

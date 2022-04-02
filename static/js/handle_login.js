@@ -10,7 +10,7 @@ function initClient() {
   //   'https://www.googleapis.com/auth/spreadsheets'
   //   'https://www.googleapis.com/auth/spreadsheets.readonly'
 //   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
-  var SCOPE = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/spreadsheets.readonly';
+  var SCOPE = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive';
 //   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
   gapi.client.init({
@@ -34,8 +34,8 @@ function updateSignInStatus(isSignedIn) {
     // read_data();
     let btn = document.getElementById('signin-button');
     let btn_ = document.getElementById('signout-button');
-    btn.style.display = 'none';
-    btn_.style.display = 'none';
+    // btn.style.display = 'none';
+    // btn_.style.display = 'none';
     console.log("Yes");
   } else {
     console.log("No");

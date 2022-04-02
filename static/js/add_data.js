@@ -27,7 +27,7 @@ function read_data() {
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    // populateSheet(response.result);
+    populateSheet(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });

@@ -27,17 +27,50 @@ function read_data() {
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    populateSheet(response.result);
+    // populateSheet(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
 }
 
 function populateSheet(result) {
-  for(var row=0; row<8; row++) {
-    for(var col=0; col<3; col++) {
-    document.getElementById(row+":"+col).value = result.values[row][col];
-    }
+  let array_rows = result.values.length;
+  // array_cols = result.values[0].length;
+  var par_table = document.getElementById("parent_table");
+
+  var table = document.createElement("TABLE");
+  table.setAttribute("id", "data_table");
+  table.border = 1;
+
+  // var table_head = document.createElement("THEAD");
+  var tableBody = document.createElement("TBODY");
+  table.appendChild(tableBody);
+  // table.appendChild(table_head);
+
+  for(var row=0; row<array_rows; row++) {
+    var tr = document.createElement("TR");
+    tableBody.appendChild(tr);
+
+    result.values[row].forEach(el => {
+      var td = document.createElement("TD");
+      var val = document.createElement("INPUT");
+      val.setAttribute("type", "text");
+      val.setAttribute("value", el);
+      td.appendChild(val);
+      tr.appendChild(td);
+    });
+
+    par_table.appendChild(table);
+
+    // for(var col=0; col<3; col++) {
+    //   var td = document.createElement("TD");
+    //   var val = document.createElement("INPUT");
+    //   val.setAttribute("type", "text");
+    //   val.setAttribute("value", result.values[row][col]);
+    //   td.appendChild(val);
+    //   tr.appendChild(td);
+    //   // document.getElementById(row+":"+col).value = result.values[row][col];
+    // }
   }
 }
 

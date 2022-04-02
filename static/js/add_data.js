@@ -36,6 +36,7 @@ function read_data() {
 function populateSheet(result) {
   let array_rows = result.values.length;
   // array_cols = result.values[0].length;
+  console.log("Arrays_rows: ", array_rows);
   var par_table = document.getElementById("parent_table");
 
   var table = document.createElement("TABLE");
@@ -47,9 +48,12 @@ function populateSheet(result) {
   table.appendChild(tableBody);
   // table.appendChild(table_head);
 
+  console.log("Values: ", result.values); 
   for(var row=0; row<array_rows; row++) {
     var tr = document.createElement("TR");
     tableBody.appendChild(tr);
+
+    console.log("Row: ", result.values[row]);
 
     result.values[row].forEach(el => {
       var td = document.createElement("TD");

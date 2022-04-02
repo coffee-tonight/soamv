@@ -8,6 +8,11 @@ spreadsheetIds = {
   "Sheet1": "1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg",
 }
 
+sheets = {
+  "OD-2342-22": "Sheet1",
+  "OD-0234-22": "Sheet2",
+}
+
 function read_data() {
   var params = {
     // The ID of the spreadsheet to retrieve data from. 1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg
@@ -31,27 +36,38 @@ function read_data() {
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    populateSheet(response.result);
+    // populateSheet(response.result);
+    return response.result;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
 }
 
+
+function submit_sheet_data() {
+  let vehicle_no = document.getElementById("vehicle_no").value;
+  let issue = document.getElementById("issue").value;
+  let oiling = document.getElementById("oiling").value;
+
+  console.log("Vehicle_no: ", vehicle_no);
+  console.log("Issue: ", issue);
+  console.log("Oiling: ", oiling);
+
+  console.log("Sheet: ", sheets[vehicle_no]);
+
+  row = [vehicle_no, issue, oiling];
+}
+
 function write_data(params) {
   params = {
     spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg',
-
   }
-  var request = gapi.client.sheets.spreadsheets.values.update(params);
-  // request.then(function(response) {
-
-
-  // }
+  // var request = gapi.client.sheets.spreadsheets.values.update(params);
+  // request.then(function(response) {}
 }
 
 function populateSheet(result) {
   let array_rows = result.values.length;
-  // array_cols = result.values[0].length;
   console.log("Arrays_rows: ", array_rows);
   var par_table = document.getElementById("parent_table");
 
@@ -59,10 +75,8 @@ function populateSheet(result) {
   table.setAttribute("id", "data_table");
   table.border = 1;
 
-  // var table_head = document.createElement("THEAD");
   var tableBody = document.createElement("TBODY");
   table.appendChild(tableBody);
-  // table.appendChild(table_head);
 
   console.log("Values: ", result.values); 
   for(var row=0; row<array_rows; row++) {
@@ -81,16 +95,6 @@ function populateSheet(result) {
     });
 
     par_table.appendChild(table);
-
-    // for(var col=0; col<3; col++) {
-    //   var td = document.createElement("TD");
-    //   var val = document.createElement("INPUT");
-    //   val.setAttribute("type", "text");
-    //   val.setAttribute("value", result.values[row][col]);
-    //   td.appendChild(val);
-    //   tr.appendChild(td);
-    //   // document.getElementById(row+":"+col).value = result.values[row][col];
-    // }
   }
 }
 

@@ -31,7 +31,11 @@ function handleClientLoad() {
 
 function updateSignInStatus(isSignedIn) {
   if (isSignedIn) {
-    read_data();
+    // read_data();
+    let btn = document.getElementsByClassName('button_');
+    btn[0].style.display = 'none';
+    btn[1].style.display = 'none';
+    console.log("Yes");
   }
 }
 

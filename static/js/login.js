@@ -62,8 +62,7 @@ function  signIn(){
     getUserData(email);
     email = " ";
     password = " ";
-    // alert("Done!");
-    handleSignInClick();
+    // handleSignInClick();
     window.location = "index.html";
   })
   .catch(e=>alert(e.message));

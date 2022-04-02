@@ -34,14 +34,16 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
     
-    <button id="signin-button" class="button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" class="button" onclick="handleSignOutClick()">Sign out</button>
+    <div class="center">
+        <button id="signin-button" class="button_" onclick="handleSignInClick()">Sign in</button>
+        <button id="signout-button" class="button_" onclick="handleSignOutClick()">Sign out</button>
+    </div>
 
     <div class="container">
         <form>
         <h1>Add a Maintenance Record</h1>
         <div class="form-group">
-            <select>
+            <select id="vehicle_no">
             <option>OD-2342-22</option>
             <option>OD-0234-22</option>
             <option>OD-0234-22</option>
@@ -50,11 +52,11 @@
             <label for="select" class="control-label">Select the Vehicle Number</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <input type="text" required="required"/>
+            <input type="text" required="required" id="issue"/>
             <label for="input" class="control-label">What was the issue?</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <textarea required="required"></textarea>
+            <textarea required="required" id="oiling"></textarea>
             <label for="textarea" class="control-label">Oiling Done?</label><i class="bar"></i>
         </div>
         <div class="checkbox">
@@ -86,7 +88,7 @@
         </div>
         </form>
         <div class="button-container">
-        <button type="button" class="button"><span>Submit</span></button>
+            <button type="button" id="submit_sheet_data" class="button" onclick="submit_sheet_data()"><span>Submit</span></button>
         </div>
     </div>
 

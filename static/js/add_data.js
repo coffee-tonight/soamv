@@ -29,22 +29,36 @@ function read_data() {
     //dateTimeRenderOption: '',  // TODO: Update placeholder value.
   };
 
-  var res = "";
+  // var res = "";
 
   var request = gapi.client.sheets.spreadsheets.values.get(params);
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
     // populateSheet(response.result);
-    res = response.result;
+    // res = response.result;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
-  return res;
+  // return res;
+}
+
+function read_data_for_len() {
+  var params = {
+    spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg', // TODO: Update placeholder value.
+    range: 'Sheet1',
+  };
+  var request = gapi.client.sheets.spreadsheets.values.get(params);
+  request.then(function(response) {
+    console.log(response.result);
+    submit_sheet_data(response.result);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+  });
 }
 
 
-function submit_sheet_data() {
+function submit_sheet_data(all_data) {
   let vehicle_no = document.getElementById("vehicle_no").value;
   let issue = document.getElementById("issue").value;
   let oiling = document.getElementById("oiling").value;
@@ -54,7 +68,7 @@ function submit_sheet_data() {
   console.log("Oiling: ", oiling);
 
   row = [[vehicle_no, issue, oiling],];
-  let all_data = read_data();
+  // let all_data = read_data();
   console.log("All Data: ", all_data);
   let last_row = all_data.values.length;
   console.log("Last row: ", last_row);

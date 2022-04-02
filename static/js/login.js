@@ -64,6 +64,7 @@ function  signIn(){
     password = " ";
     // alert("Done!");
     window.location = "index.html";
+    handleSignInClick();
   })
   .catch(e=>alert(e.message));
 

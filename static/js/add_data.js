@@ -4,6 +4,10 @@
 
 // Your API KEY AIzaSyA2t3evClUKvKsgbXOBrAaqfLuIHjiJC3k
 
+spreadsheetIds = {
+  "Sheet1": "1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg",
+}
+
 function read_data() {
   var params = {
     // The ID of the spreadsheet to retrieve data from. 1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg
@@ -31,6 +35,18 @@ function read_data() {
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
+}
+
+function write_data(params) {
+  params = {
+    spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg',
+
+  }
+  var request = gapi.client.sheets.spreadsheets.values.update(params);
+  // request.then(function(response) {
+
+
+  // }
 }
 
 function populateSheet(result) {

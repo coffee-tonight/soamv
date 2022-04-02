@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" />
-
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" /> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script> -->
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="static/js/add_data.js"></script>
     <script src="static/js/handle_login.js"></script>
+
+    <link rel="stylesheet" href="static/css/add_data.css">
 
     <title>Add Maintenance Records</title>
 </head>
@@ -25,29 +23,72 @@
     <h1>
         Welcome to Motor Vehicle SOA (DU)
     </h1>
-    <h3>
-        Add the Maintenance Records
-    </h3>
 
-    <script async defer src="https://apis.google.com/js/api.js"
+    <!-- <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+    </script> -->
     
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+    <button id="signin-button" class="button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" class="button" onclick="handleSignOutClick()">Sign out</button>
 
+    <div class="container">
+        <form>
+        <h1>Add a Maintenance Record</h1>
+        <div class="form-group">
+            <select>
+            <option>OD-2342-22</option>
+            <option>OD-0234-22</option>
+            <option>OD-0234-22</option>
+            <option>OD-2342-22</option>
+            </select>
+            <label for="select" class="control-label">Select the Vehicle Number</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required"/>
+            <label for="input" class="control-label">What was the issue?</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <textarea required="required"></textarea>
+            <label for="textarea" class="control-label">Oiling Done?</label><i class="bar"></i>
+        </div>
+        <div class="checkbox">
+            <label>
+            <input type="checkbox" checked="checked"/><i class="helper"></i>I consent the issue
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+            <input type="checkbox"/><i class="helper"></i>Oil Refilled
+            </label>
+        </div>
+        <div class="form-radio">
+            <div class="radio">
+            <label>
+                <input type="radio" name="radio" checked="checked"/><i class="helper"></i>Paid
+            </label>
+            </div>
+            <div class="radio">
+            <label>
+                <input type="radio" name="radio"/><i class="helper"></i>Not Paid
+            </label>
+            </div>
+        </div>
+        <div class="checkbox">
+            <label>
+            <input type="checkbox"/><i class="helper"></i>I agree this will be added to the database
+            </label>
+        </div>
+        </form>
+        <div class="button-container">
+        <button type="button" class="button"><span>Submit</span></button>
+        </div>
+    </div>
 
-    <form action="https://sheetdb.io/api/v1/8xgalkm2fwytr" method="post">
-        <input type="text" name="maintenance" id="maintenance">
-        <input type="text" name="who" id="who">
-        <input type="text" name="why" id="why">
-        <button type="submit">Submit</button>
-    </form>
     <br>
     <br>
     <div class="parent_table" id="parent_table"></div>
-    <!-- <script src="https://sheetdb.io/s/f/vjdkf6w8q1m6c.js"></script> -->
+    <!-- <script src="https://sheetdb.io/s/f/vjdkf6w8q1m6c.js"></script> https://sheetdb.io/api/v1/8xgalkm2fwytr -->
 </body>
 </html>
 <!-- <script src="https://sheetdb.io/s/t/9khfst8wjqngi.js"></script> -->

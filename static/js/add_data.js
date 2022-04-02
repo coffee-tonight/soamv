@@ -44,9 +44,10 @@ function read_data() {
 }
 
 function read_data_for_len() {
+  let vehicle_no = document.getElementById("vehicle_no").value;
   var params = {
     spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg', // TODO: Update placeholder value.
-    range: 'Sheet1',
+    range: sheets[vehicle_no],
   };
   var request = gapi.client.sheets.spreadsheets.values.get(params);
   request.then(function(response) {
@@ -79,9 +80,6 @@ function submit_sheet_data(all_data) {
 }
 
 function write_data(values, range) {
-  
-  // var request = gapi.client.sheets.spreadsheets.values.update(params);
-  // request.then(function(response) {}
   gapi.client.sheets.spreadsheets.values.update({
     spreadsheetId: sheetId,
     range: range,
@@ -89,11 +87,8 @@ function write_data(values, range) {
     resource: values
   }).then((response) => {
    var result = response.result;
-   console.log(`${result.updatedCells} cells updated.`);
-   // [START_EXCLUDE silent]
-   callback(response);
-   // [END_EXCLUDE]
- });
+    console.log(`${result.updatedCells} cells updated.`);
+  });
 }
 
 function populateSheet(result) {

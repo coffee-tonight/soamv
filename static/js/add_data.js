@@ -3,10 +3,7 @@
 // API Key: AIzaSyAPEZM-uh2f57W9BaQ4p4mWCb2-_LyL55g
 
 // Your API KEY AIzaSyA2t3evClUKvKsgbXOBrAaqfLuIHjiJC3k
-
-spreadsheetIds = {
-  "Sheet1": "1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg",
-}
+const sheetId = '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg';
 
 sheets = {
   "OD-2342-22": "Sheet1",
@@ -53,17 +50,30 @@ function submit_sheet_data() {
   console.log("Issue: ", issue);
   console.log("Oiling: ", oiling);
 
-  console.log("Sheet: ", sheets[vehicle_no]);
-
-  row = [vehicle_no, issue, oiling];
+  row = [[vehicle_no, issue, oiling],];
+  let all_data = read_data();
+  let last_row = all_data.values.length;
+  let range = `${sheets[vehicle_no]}!A${last_row+1}:C${last_row+1}`;
+  let values = {values: row};
+  write_data(values, range);
 }
 
-function write_data(params) {
-  params = {
-    spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg',
-  }
+function write_data(values, range) {
+  
   // var request = gapi.client.sheets.spreadsheets.values.update(params);
   // request.then(function(response) {}
+  gapi.client.sheets.spreadsheets.values.update({
+    spreadsheetId: sheetId,
+    range: range,
+    valueInputOption: "USER_ENTERED",
+    resource: values
+  }).then((response) => {
+   var result = response.result;
+   console.log(`${result.updatedCells} cells updated.`);
+   // [START_EXCLUDE silent]
+   callback(response);
+   // [END_EXCLUDE]
+ });
 }
 
 function populateSheet(result) {

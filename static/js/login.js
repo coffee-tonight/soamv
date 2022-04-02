@@ -63,8 +63,8 @@ function  signIn(){
     email = " ";
     password = " ";
     // alert("Done!");
-    window.location = "index.html";
     handleSignInClick();
+    window.location = "index.html";
   })
   .catch(e=>alert(e.message));
 

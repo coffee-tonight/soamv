@@ -64,18 +64,18 @@ function submit_sheet_data(all_data) {
   let issue = document.getElementById("issue").value;
   let oiling = document.getElementById("oiling").value;
 
-  console.log("Vehicle_no: ", vehicle_no);
-  console.log("Issue: ", issue);
-  console.log("Oiling: ", oiling);
+  // console.log("Vehicle_no: ", vehicle_no);
+  // console.log("Issue: ", issue);
+  // console.log("Oiling: ", oiling);
 
   row = [[vehicle_no, issue, oiling],];
   // let all_data = read_data();
-  console.log("All Data: ", all_data);
+  // console.log("All Data: ", all_data);
   let last_row = all_data.values.length;
-  console.log("Last row: ", last_row);
+  // console.log("Last row: ", last_row);
   let range = `${sheets[vehicle_no]}!A${last_row+1}:C${last_row+1}`;
   let values = {values: row};
-  console.log("Range: ", range, "Values: ", values);
+  // console.log("Range: ", range, "Values: ", values);
   write_data(values, range);
 }
 

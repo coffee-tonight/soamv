@@ -36,7 +36,7 @@ function updateSignInStatus(isSignedIn) {
     let btn_ = document.getElementById('signout-button');
     btn.style.display = 'none';
     btn_.style.display = 'none';
-    console.log("Yes");
+    // console.log("Yes");
   } else {
     console.log("No");
   }

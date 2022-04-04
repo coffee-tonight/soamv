@@ -6,6 +6,6 @@ function search_vehicle() {
         console.log("Hey! I'm in search_vehicle()", content);
         content.style.position = "absolute";
         content.style.top = "100px";
-        content.style.transition = "4s";
+        content.style.transition = "2.4s";
     }
 }

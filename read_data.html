@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/read_data.css">
+
     <title>View Reports of Vehicles | SOADU</title>
 </head>
 <body>
-    Hello World!
+    <div id="cover">
+        <!-- <form> -->
+            <div class="tb">
+            <div class="td"><input type="text" id="search" placeholder="Search" required></div>
+            <div class="td" id="s-cover">
+              <button type="submit" id="btn_search" onclick="search_vehicle()">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+          <!-- </form> -->
+    </div>
+    <script src="static/js/read_data.js"></script>
 </body>
 </html>

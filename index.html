@@ -15,6 +15,8 @@
     <script src="static/js/login.js"></script>
     <script src="static/js/userState.js"></script>
 
+    <link rel="stylesheet" href="static/css/bus.css">
+
     <!-- <script>
         $( document ).ready(function() {
             console.log( "ready!" );
@@ -28,12 +30,30 @@
     <title>Motor Vehicle | SOADU</title>
 </head>
 <body>
-    Welcome to the Motor Vehicle Database
+    <!-- Welcome to the Motor Vehicle Database
     <br>
     <br>
     <a href="login.html">Login</a> <br>
-    <a href="add_data.html">Maintenance Records</a> <br>
+    <a href="add_data.html">Maintenance Records</a> <br> -->
     <!-- <a onclick="console.log('Not Working!')">Log out</a> -->
+
+    <div class="bg-img"></div>
+    <div class="flex">
+        <div class="glass-block" onclick="window.location = 'read_data.html'">
+            <div class="img_par">
+                <img src="static/img/search.png" alt="Search.png" class="img_bar">
+            </div>
+            <h1>View Records</h1>
+            <h4>Search for the records of Vehicles</h4>
+        </div>
+        <div class="glass-block" onclick="window.location = 'add_data.html'">
+            <div class="img_par">
+                <img src="https://img.icons8.com/plasticine/100/000000/approve-and-update.png" alt="Search.png" class="img_bar">
+            </div>
+            <h1>Update Records</h1>
+            <h4>Update and Add New Records</h4>
+        </div>
+    </div>
 
 </body>
 </html>

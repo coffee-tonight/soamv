@@ -40,7 +40,8 @@
     top: 50%;
     left: 0;
     right: 0;
-    width: 550px;
+    /* width: 550px; */
+    max-width: 800px;
     padding: 35px;
     margin: -83px auto 0 auto;
     background-color: #ff7575;
@@ -151,3 +152,21 @@
     background-color: #fff;
   }
   
+
+  @media screen and (max-width: 550px) {
+    #cover {
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: 0;
+        /* width: 400px; */
+        margin: 10px;
+        background-color: #ff7575;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+        transform: translateX(-50%) scale(0.6) translateY(-50%);
+    }
+    
+  }

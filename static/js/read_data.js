@@ -44,14 +44,14 @@ function processResult(data) {
     console.log("Data in Process Result: ", data);
 }
 
-function search_vehicle() {
+async function search_vehicle() {
     search_val = document.getElementById("search").value;
     if (search_val != "") {
         console.log("Hey! I'm in search_vehicle()", content);
         content.style.position = "absolute";
         content.style.top = "100px";
         content.style.transition = "2.4s";
-        var data = read_vehicle_data(search_val);
+        var data = await read_vehicle_data(search_val);
         console.log("Data returned: ", data);
     }
 }

@@ -50,3 +50,8 @@ for (let i = 0; i < input.length; i++) {
     console.log(this.value);
   });
 }
+
+console.log("Sliced: ", res.slice(2));
+console.log("Sliced: ", res.slice(4, 4));
+console.log("Sliced: ", res.slice(3, 20));
+console.log("Sliced: ", res.slice(10, 20));

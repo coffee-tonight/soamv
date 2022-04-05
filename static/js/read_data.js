@@ -33,15 +33,23 @@ async function read_vehicle_data(vh_num) {
     request.then(function(response) {
         console.log(`Result Fetched for ${sheet}: `, response.result);
         processResult(response.result);
-        return response.result;
+        // return response.result;
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
-        return "Not Found";
+        // return "Not Found";
     });
 }
 
 function processResult(data) {
     console.log("Data in Process Result: ", data);
+    const values = data.values;
+    var vh_details = values.slice(0, 8);
+    var maintenance_records = values.slice(8);
+    var maintenance_records1 = values.slice(12);
+    var maintenance_records2 = values.slice(8);
+
+    console.log("details: vh: ", vh_details, "MR: ", maintenance_records, maintenance_records1, maintenance_records2);
+    
 }
 
 async function search_vehicle() {
@@ -52,6 +60,6 @@ async function search_vehicle() {
         content.style.top = "100px";
         content.style.transition = "2.4s";
         var data = await read_vehicle_data(search_val);
-        console.log("Data returned: ", data);
+        // console.log("Data returned: ", data);
     }
 }

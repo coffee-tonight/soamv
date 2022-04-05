@@ -152,6 +152,27 @@
     background-color: #fff;
   }
   
+  .center {
+    text-align: center;
+    color: white;
+  }
+  .button_ {
+    background: rgb(0, 213, 225);
+    color: #fff;
+    font-size: large;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 6px;
+    transition: 0.4s;
+  }
+  .button_:hover {
+    color: rgb(0, 213, 225);
+    background: #fff;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14);
+  }
+  
 
   @media screen and (max-width: 550px) {
     #cover {

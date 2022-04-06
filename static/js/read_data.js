@@ -53,8 +53,47 @@ function processResult(data) {
     console.log("Battery Details: ", battery_details);
     console.log("Tyre Details: ", tyre_details);
     console.log("Maintenance Records: ", maintenance_records);
+
+    vehicle_dets(vh_details.slice(1), "vehicle_det");
+    vehicle_dets(assignment_details.slice(1), "assign_det");
+    vehicle_dets(insurance_details.slice(1), "insurance_det");
+    vehicle_dets(fitness_details.slice(1), "fitness_det");
+    vehicle_dets(permit_details.slice(1), "permit_det");
+    vehicle_dets(puc_details.slice(1), "puc_det");
+    vehicle_dets(battery_details.slice(1), "battery_det");
+    vehicle_dets(tyre_details.slice(1), "tyre_det");
+    vehicle_dets(maintenance_records.slice(1), "maintenance_records");
     
 }
+
+function vehicle_dets(vh_det, name) {
+    console.log("Vehicle Details: ", vh_det);
+    let vehicle_det = document.getElementById(name);
+
+    for (let i = 0; i < vh_det.length; i++) {
+        let vh_det_row = document.createElement("div");
+        vh_det_row.style.display = "flex";
+        vh_det_row.style.flexDirection = "row";
+
+        for (let j = 0; j < vh_det[i].length; j++) {
+            let vh_det_div = document.createElement("div");
+            vh_det_div.classList.add("vh_det_div");
+            vh_det_div.innerHTML = vh_det[i][j];
+            vh_det_div.style.margin = "0px 4px";
+            vh_det_div.style.font_size = "28px";
+            vh_det_row.appendChild(vh_det_div);
+        }
+        vehicle_det.appendChild(vh_det_row);
+    }
+}
+
+// function assignment_dets(assignment_det) {
+    
+// }
+
+// function insurance_dets(insurance_det) {
+    
+// }
 
 async function search_vehicle() {
     search_val = document.getElementById("search").value;

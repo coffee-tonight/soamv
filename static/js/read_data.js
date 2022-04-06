@@ -4,8 +4,10 @@ const sheetId = "1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg"
 async function read_vehicle_data(vh_num) {
     // var sheet = sheetName[vh_num]
     // console.log(sheet);
-    let loading = document.querySelector(".spinner-box")
+    let loading = document.querySelector(".spinner-box");
+    let show_data = document.querySelector(".show_data");
     loading.style.display = "flex";
+    show_data.style.display = "none";
 
     var params = {
         // spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg',
@@ -19,6 +21,7 @@ async function read_vehicle_data(vh_num) {
         // console.log(`Result Fetched for ${sheet}: `, response.result);
         processResult(response.result);
         loading.style.display = "none";
+        show_data.style.display = "block";
         // return response.result;
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);

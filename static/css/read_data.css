@@ -14,6 +14,10 @@
     margin: 0;
     background-color: #ffd8d8;
   }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
   
   .tb {
     display: table;
@@ -197,7 +201,22 @@
     background-color: #ff9a9a;
     border: rgb(238, 167, 167);
     border-radius: 20px;
-    
+  }
+
+  .show_data {
+    display: none;
+    position: relative;
+    top: 150px;
+    margin: 100px;
+    margin-bottom: 100px;
+    padding: 16px;
+    /* border: 1px solid #e16868; */
+    border-radius: 40px;
+    box-shadow: 10px 10px 10px rgba(255,255,255,0.2),
+                -10px -10px 10px rgba(0,0,0,0.2),
+                inset -5px -5px 5px rgba(255,255,255,0.2),
+                inset 5px 5px 5px rgba(0,0,0,0.1);
+    height: 800px;
   }
   
 

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/read_data.css">
+    <link rel="stylesheet" href="static/css/loading.css">
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
@@ -26,14 +27,15 @@
     </script>
 
     <div class="center">
-        <button id="signin-button" class="button_" onclick="handleSignInClick()">Sign in</button>
-        <button id="signout-button" class="button_" onclick="handleSignOutClick()">Sign out</button>
+        <a id="signin-button" class="button_" onclick="handleSignInClick()">Sign in</a>
+        <a id="signout-button" class="button_" onclick="handleSignOutClick()">Sign out</a>
     </div>
 
     <div id="cover">
         <!-- <form> -->
             <div class="tb">
             <div class="td"><input type="text" id="search" placeholder="Search" required></div>
+            
             <div class="td" id="s-cover">
               <button type="submit" id="btn_search" onclick="search_vehicle()">
                 <div id="s-circle"></div>
@@ -43,6 +45,15 @@
           </div>
           <!-- </form> -->
     </div>
+    <div class="spinner-box">
+      <div class="pulse-container">  
+        <div class="pulse-bubble pulse-bubble-1"></div>
+        <div class="pulse-bubble pulse-bubble-2"></div>
+        <div class="pulse-bubble pulse-bubble-3"></div>
+      </div>
+    </div>
+    <ul class="list"></ul>
+    <script src="static/js/handle_suggestions.js"></script>
     <script src="static/js/read_data.js"></script>
 </body>
 </html>

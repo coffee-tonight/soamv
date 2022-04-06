@@ -6,6 +6,7 @@ async function read_vehicle_data(vh_num) {
     // console.log(sheet);
     let loading = document.querySelector(".spinner-box");
     let show_data = document.querySelector(".show_data");
+
     loading.style.display = "flex";
     show_data.style.display = "none";
 
@@ -19,9 +20,9 @@ async function read_vehicle_data(vh_num) {
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
         // console.log(`Result Fetched for ${sheet}: `, response.result);
+        show_data.style.display = "block";
         processResult(response.result);
         loading.style.display = "none";
-        show_data.style.display = "block";
         // return response.result;
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
@@ -70,13 +71,25 @@ function vehicle_dets(vh_det, name) {
     console.log("Vehicle Details: ", vh_det);
     let vehicle_det = document.getElementById(name);
 
+    // document.getElementsByClassName(".vh_det_div").forEach(element => {
+        
+    // });
+
+    // vehicle_det.removeChild();
+
     for (let i = 0; i < vh_det.length; i++) {
         let vh_det_row = document.createElement("div");
         vh_det_row.style.display = "flex";
         vh_det_row.style.flexDirection = "row";
 
         for (let j = 0; j < vh_det[i].length; j++) {
-            let vh_det_div = document.createElement("div");
+            var vh_det_div = "";
+            if (document.querySelector("vh_det_div") != null) {
+                vh_det_div = document.querySelector("vh_det_div");
+            } else {
+                vh_det_div = document.createElement("div");
+            }
+            
             vh_det_div.classList.add("vh_det_div");
             vh_det_div.innerHTML = vh_det[i][j];
             vh_det_div.style.margin = "0px 4px";

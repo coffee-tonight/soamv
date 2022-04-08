@@ -19,7 +19,7 @@ async function read_vehicle_data(vh_num) {
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
-        // console.log(`Result Fetched for ${sheet}: `, response.result);
+        console.log(`Result Fetched for ${sheet}: `, response.result);
         show_data.style.display = "block";
         processResult(response.result);
         loading.style.display = "none";
@@ -55,16 +55,37 @@ function processResult(data) {
     console.log("Tyre Details: ", tyre_details);
     console.log("Maintenance Records: ", maintenance_records);
 
-    vehicle_dets(vh_details.slice(1), "vehicle_det");
-    vehicle_dets(assignment_details.slice(1), "assign_det");
-    vehicle_dets(insurance_details.slice(1), "insurance_det");
-    vehicle_dets(fitness_details.slice(1), "fitness_det");
-    vehicle_dets(permit_details.slice(1), "permit_det");
-    vehicle_dets(puc_details.slice(1), "puc_det");
-    vehicle_dets(battery_details.slice(1), "battery_det");
-    vehicle_dets(tyre_details.slice(1), "tyre_det");
-    vehicle_dets(maintenance_records.slice(1), "maintenance_records");
-    
+    // vehicle_dets(vh_details.slice(1), "vehicle_det");
+    update_rec(vh_details.slice(1)[0][2], "model");
+    update_rec(vh_details.slice(1)[0][4], "enginecc");
+    update_rec(vh_details.slice(1)[1][2], "engine_number");
+    update_rec(vh_details.slice(1)[2][2], "chassis_number");
+    update_rec(vh_details.slice(1)[2][5], "number_of_seats");
+    update_rec(vh_details.slice(1)[3][2], "tax");
+    update_rec(vh_details.slice(1)[3][5], "odometer_reading");
+    // vehicle_dets(assignment_details.slice(1), "assign_det");
+    // vehicle_dets(insurance_details.slice(1), "insurance_det");
+    // vehicle_dets(fitness_details.slice(1), "fitness_det");
+    // vehicle_dets(permit_details.slice(1), "permit_det");
+    // vehicle_dets(puc_details.slice(1), "puc_det");
+    // vehicle_dets(battery_details.slice(1), "battery_det");
+    // vehicle_dets(tyre_details.slice(1), "tyre_det");
+    // vehicle_dets(maintenance_records.slice(1), "maintenance_records");
+    // 0: ['Vehicle Details :']
+    // 1: (8) ['', 'MODEL :', 'WagonR', '', 'Engine CC :', '998', '', 'MILEAGE']
+    // 2: (7) ['', 'Engine Number :', 'K10BN4800081', '', 'Type of Rg :', 'LMV', 'dt']
+    // 3: (7) ['', 'Chassis Number :', 'MA3EWDE1S00A23251', '', 'Number of Seats :', '5', 'ml']
+    // 4: (7) ['', 'Tax :', '3/31/2031', '', 'Odometer Reading :', '146646(24-10-21)', 'odo']
+    // 5: (9) ['', '', '', '', '', '', '', 'old', 'new']
+
+
+}
+
+function update_rec(details, id_) {
+    let fetch_id = document.getElementById(id_);
+    console.log("Fetch ID: ", fetch_id, "Details: ", details);
+
+    fetch_id.innerText = details;
 }
 
 function vehicle_dets(vh_det, name) {
@@ -77,27 +98,27 @@ function vehicle_dets(vh_det, name) {
 
     // vehicle_det.removeChild();
 
-    for (let i = 0; i < vh_det.length; i++) {
-        let vh_det_row = document.createElement("div");
-        vh_det_row.style.display = "flex";
-        vh_det_row.style.flexDirection = "row";
+    // for (let i = 0; i < vh_det.length; i++) {
+    //     let vh_det_row = document.createElement("div");
+    //     vh_det_row.style.display = "flex";
+    //     vh_det_row.style.flexDirection = "row";
 
-        for (let j = 0; j < vh_det[i].length; j++) {
-            var vh_det_div = "";
-            if (document.querySelector("vh_det_div") != null) {
-                vh_det_div = document.querySelector("vh_det_div");
-            } else {
-                vh_det_div = document.createElement("div");
-            }
+    //     for (let j = 0; j < vh_det[i].length; j++) {
+    //         var vh_det_div = "";
+    //         if (document.querySelector("vh_det_div") != null) {
+    //             vh_det_div = document.querySelector("vh_det_div");
+    //         } else {
+    //             vh_det_div = document.createElement("div");
+    //         }
             
-            vh_det_div.classList.add("vh_det_div");
-            vh_det_div.innerHTML = vh_det[i][j];
-            vh_det_div.style.margin = "0px 4px";
-            vh_det_div.style.font_size = "28px";
-            vh_det_row.appendChild(vh_det_div);
-        }
-        vehicle_det.appendChild(vh_det_row);
-    }
+    //         vh_det_div.classList.add("vh_det_div");
+    //         vh_det_div.innerHTML = vh_det[i][j];
+    //         vh_det_div.style.margin = "0px 4px";
+    //         vh_det_div.style.font_size = "28px";
+    //         vh_det_row.appendChild(vh_det_div);
+    //     }
+    //     vehicle_det.appendChild(vh_det_row);
+    // }
 }
 
 // function assignment_dets(assignment_det) {

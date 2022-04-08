@@ -19,10 +19,10 @@ async function read_vehicle_data(vh_num) {
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
-        console.log(`Result Fetched for ${sheet}: `, response.result);
+        // console.log(`Result Fetched for ${vh_num}: `, response.result);
         show_data.style.display = "block";
-        processResult(response.result);
         loading.style.display = "none";
+        processResult(response.result);
         // return response.result;
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
@@ -35,6 +35,10 @@ function processResult(data) {
     const values = data.values;
 
     // Decrease the lower limit of the range to ommit the header row
+    var vh_num = values[1][0];
+    var reg_date = values[1][5];
+    var age = values[1][7];
+
     var vh_details = values.slice(3, 9);
     var assignment_details = values.slice(9, 16);
     var insurance_details = values.slice(17, 21);
@@ -45,8 +49,8 @@ function processResult(data) {
     var tyre_details = values.slice(38, 46);
     var maintenance_records = values.slice(51);
 
-    console.log("Vehicle Details: ", vh_details);
-    console.log("Assignment Details: ", assignment_details);
+    // console.log("Vehicle Details: ", vh_details);
+    // console.log("Assignment Details: ", assignment_details);
     console.log("Insurance Details: ", insurance_details);
     console.log("Fitness Details: ", fitness_details);
     console.log("Permit Details: ", permit_details);
@@ -55,28 +59,114 @@ function processResult(data) {
     console.log("Tyre Details: ", tyre_details);
     console.log("Maintenance Records: ", maintenance_records);
 
+    // Vehicle Details
     // vehicle_dets(vh_details.slice(1), "vehicle_det");
+    update_rec(vh_num, "vh_num");
+    update_rec(reg_date, "reg_date");
+    update_rec(age, "age");
     update_rec(vh_details.slice(1)[0][2], "model");
-    update_rec(vh_details.slice(1)[0][4], "enginecc");
+    update_rec(vh_details.slice(1)[0][5], "enginecc");
+    console.log(vh_details.slice(1)[3][8]);
+    if (vh_details.slice(1)[3][8] !== undefined) {
+        console.log("Undefined!");
+        update_rec(vh_details.slice(1)[3][8], "mileage");
+    }
     update_rec(vh_details.slice(1)[1][2], "engine_number");
     update_rec(vh_details.slice(1)[2][2], "chassis_number");
     update_rec(vh_details.slice(1)[2][5], "number_of_seats");
     update_rec(vh_details.slice(1)[3][2], "tax");
     update_rec(vh_details.slice(1)[3][5], "odometer_reading");
+    
+    // Assignment Details
     // vehicle_dets(assignment_details.slice(1), "assign_det");
+    update_rec(assignment_details.slice(1)[0][2], "campus_assigned");
+    update_rec(assignment_details.slice(1)[1][2], "operation_incharge");
+    update_rec(assignment_details.slice(1)[1][6], "mobile_incharge");
+    update_rec(assignment_details.slice(1)[2][2], "driver1");
+    update_rec(assignment_details.slice(1)[3][2], "driver2");
+    update_rec(assignment_details.slice(1)[2][6], "mobile1");
+    update_rec(assignment_details.slice(1)[3][6], "mobile2");
+    update_rec(assignment_details.slice(1)[4][2], "officer_assigned1");
+    update_rec(assignment_details.slice(1)[5][2], "officer_assigned2");
+    update_rec(assignment_details.slice(1)[4][6], "mobile_officer1");
+    update_rec(assignment_details.slice(1)[5][6], "mobile_officer2");
+    
+    // Insurance Details
     // vehicle_dets(insurance_details.slice(1), "insurance_det");
+    update_rec(insurance_details.slice(1)[0][2], "insuring_company");
+    update_rec(insurance_details.slice(1)[0][5], "policy_no");
+    update_rec(insurance_details.slice(1)[1][2], "insurance_type");
+    update_rec(insurance_details.slice(1)[1][5], "ins_valid_from");
+    update_rec(insurance_details.slice(1)[2][5], "ins_valid_to");
+    update_rec(insurance_details.slice(1)[2][2], "insurance_amount");
+    update_rec(insurance_details.slice(1)[2][7], "ins_due");
+    update_rec(insurance_details.slice(1)[2][9], "months");
+
+    // Fitness Details
     // vehicle_dets(fitness_details.slice(1), "fitness_det");
+    update_rec(fitness_details.slice(1)[0][2], "fitness_friquency");
+    update_rec(fitness_details.slice(1)[0][5], "fit_valid_from");
+    update_rec(fitness_details.slice(1)[1][5], "fit_valid_to");
+    update_rec(fitness_details.slice(1)[1][7], "fit_due");
+    update_rec(fitness_details.slice(1)[1][9], "months");
+
+    // Permit Details
     // vehicle_dets(permit_details.slice(1), "permit_det");
+    update_rec(permit_details.slice(1)[0][2], "type");
+    // update_rec(permit_details.slice(1)[0][4], "");
+    update_rec(permit_details.slice(1)[0][5], "per_valid_from");
+    update_rec(permit_details.slice(1)[1][5], "per_valid_to");
+    update_rec(permit_details.slice(1)[1][7], "per_due");
+    update_rec(permit_details.slice(1)[1][9], "months");
+
+    // PUC Details
     // vehicle_dets(puc_details.slice(1), "puc_det");
+    update_rec(puc_details.slice(1)[0][0], "puc");
+    update_rec(puc_details.slice(1)[0][2], "puc_valid_from");
+    update_rec(puc_details.slice(1)[0][5], "puc_valid_to");
+    update_rec(puc_details.slice(1)[0][7], "puc_due");
+
+    // Battery Details
     // vehicle_dets(battery_details.slice(1), "battery_det");
+    update_rec(battery_details.slice(1)[0][2], "battery_spec");
+    update_rec(battery_details.slice(1)[1][2], "installed_battery_brand");
+    // update_rec(battery_details.slice(1)[1][6], "warrenty");
+    update_rec(battery_details.slice(1)[1][6], "battery_valid_from");
+    update_rec(battery_details.slice(1)[2][6], "battery_valid_to");
+
+    // Tyre Details
     // vehicle_dets(tyre_details.slice(1), "tyre_det");
+    update_rec(tyre_details.slice(1)[0][2], "tyre_size_spec");
+    update_rec(tyre_details.slice(1)[1][2], "tyre_chagne_frequency");
+    update_rec(tyre_details.slice(1)[2][3], "curent_tyre_brand");
+    update_rec(tyre_details.slice(1)[3][4], "ofr");
+    update_rec(tyre_details.slice(1)[4][4], "ofl");
+    update_rec(tyre_details.slice(1)[5][4], "obr");
+    update_rec(tyre_details.slice(1)[6][4], "obl");
+    update_rec(tyre_details.slice(1)[3][5], "rfr");
+    update_rec(tyre_details.slice(1)[4][5], "rfl");
+    update_rec(tyre_details.slice(1)[5][5], "rbr");
+    update_rec(tyre_details.slice(1)[6][5], "rbl");
+
+    update_rec(tyre_details.slice(1)[3][0], "tyre_date_fr");
+    update_rec(tyre_details.slice(1)[4][0], "tyre_date_fl");
+    update_rec(tyre_details.slice(1)[5][0], "tyre_date_br");
+    update_rec(tyre_details.slice(1)[6][0], "tyre_date_bl");
+
+    // Maintenance Records
     // vehicle_dets(maintenance_records.slice(1), "maintenance_records");
-    // 0: ['Vehicle Details :']
-    // 1: (8) ['', 'MODEL :', 'WagonR', '', 'Engine CC :', '998', '', 'MILEAGE']
-    // 2: (7) ['', 'Engine Number :', 'K10BN4800081', '', 'Type of Rg :', 'LMV', 'dt']
-    // 3: (7) ['', 'Chassis Number :', 'MA3EWDE1S00A23251', '', 'Number of Seats :', '5', 'ml']
-    // 4: (7) ['', 'Tax :', '3/31/2031', '', 'Odometer Reading :', '146646(24-10-21)', 'odo']
-    // 5: (9) ['', '', '', '', '', '', '', 'old', 'new']
+    // update_rec(maintenance_records.slice(1)[0][2], "campus_assigned");
+    // update_rec(maintenance_records.slice(1)[1][2], "operation_incharge");
+    // update_rec(maintenance_records.slice(1)[1][6], "mobile_incharge");
+    // update_rec(maintenance_records.slice(1)[2][2], "driver1");
+    // update_rec(maintenance_records.slice(1)[3][2], "driver2");
+    // update_rec(maintenance_records.slice(1)[2][6], "mobile1");
+    // update_rec(maintenance_records.slice(1)[3][6], "mobile2");
+    // update_rec(maintenance_records.slice(1)[4][2], "officer_assigned1");
+    // update_rec(maintenance_records.slice(1)[5][2], "officer_assigned2");
+    // update_rec(maintenance_records.slice(1)[4][6], "mobile_officer1");
+    // update_rec(maintenance_records.slice(1)[5][6], "mobile_officer2");
+    
 
 
 }

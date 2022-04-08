@@ -68,3 +68,41 @@ Maintenance_Records = [Array(1), Array(9), Array(9), Array(9)]
 ['1/27/2022', 'Ambulance Both Side Body Fitness yellow sticker', '', '', 'Climax Sticker Art', '', 'रु 1,500.00', 'रु 0.00', 'रु 1,500.00']
 
 ['1/4/2022', 'Wheel Allignment', '', '', 'Lalu Automobiles', '', '', 'रु 400.00', 'रु 400.00']
+
+
+// 0: ['Insurance Details :']
+// 1: (6) ['', 'Insuring Company :', 'Royal Sundaram General Insurance Co. Limited', '', 'Policy No :', 'VPC1608519000100']
+// 2: (6) ['', 'Insueance Type :', 'NIL DEP', '', 'Valid From :', '3/10/2022']
+// 3: (9) ['', 'Insueance Amount :', 'रु 8,014.56', '', 'Valid To :', '3/9/2023', 'DUE:', '11', 'Months']
+
+// Fitness Details:
+// 0: ['Fitness :']
+// 1: (5) ['', 'Fitness Friquency :', '', '', 'Valid From :']
+// 2: (9) ['', '', '', '', 'Valid To :', '3/12/2031', 'DUE:', '107', 'Months']
+
+// Permit Details:
+// 0: ['Permit :']
+// 1: (5) ['', 'Type :', 'N/A', '', 'Valid From :']
+// 2: (9) ['', '', '', '', 'Valid To :', '', 'DUE:', '#NUM!', 'Months']
+// 3: []
+
+// PUC Details:
+// 0: ['PUC :']
+// 1: (9) ['', 'Valid From :', '3/15/2022', '', 'Valid To :', '9/14/2022', 'DUE:', '5', 'Months']
+
+// Battery Details:  
+// 0: ['Battery Details :']
+// 1: (3) ['', 'Battery Spec :', 'ML-38B20L, A1B0A136743']
+// 2: (7) ['', 'Installed Battery Brand :', '', '', 'Warrenty :', 'Valid From :', '5/7/2020']
+// 3: (6) ['', '', '', '', '', 'Valid To :']
+
+// Tyre Details:  
+// Array(8)
+// 0: ['Tyre Details :']
+// 1: (3) ['', 'Tyre Size Spec :', '155/65R14 3G']
+// 2: (2) ['', 'Tyre Chagne Frequency :']
+// 3: (6) ['', '', 'Curent Tyre Brand', '', 'Odometer at Change', 'Replacement Due']
+// 4: (6) ['10/9/2020', 'FR', '155/65R14 Apollo TL Tyr', '', '151581', '151581']
+// 5: (6) ['10/9/2020', 'FL', 'APOLLO', '', '', '0']
+// 6: (6) ['1/22/2019', 'RR', 'APOLLO', '', '', '0']
+// 7: (6) ['1/22/2019', 'RL', 'APOLLO', '', '', '0']

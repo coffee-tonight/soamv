@@ -52,23 +52,44 @@
             <label for="select" class="control-label">Select the Vehicle Number</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <input type="text" required="required" id="issue"/>
-            <label for="input" class="control-label">What was the issue?</label><i class="bar"></i>
+            <input type="text" required="required" id="date"/>
+            <label for="input" class="control-label">What is the Date?</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <textarea required="required" id="oiling"></textarea>
-            <label for="textarea" class="control-label">Oiling Done?</label><i class="bar"></i>
+            <textarea required="required" id="desc"></textarea>
+            <label for="textarea" class="control-label">Add a Description</label><i class="bar"></i>
         </div>
+        <div class="form-group">
+            <input type="text" required="required" id="work"/>
+            <label for="input" class="control-label">Workshop/Mechanic</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" id="estimate"/>
+            <label for="input" class="control-label">What is the Estimted Cost?</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" id="spare"/>
+            <label for="input" class="control-label">What is the Spare Cost?</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" id="labor"/>
+            <label for="input" class="control-label">What is the Labor Charge?</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" id="total"/>
+            <label for="input" class="control-label">What is the <b>Total Amount</b>?</label><i class="bar"></i>
+        </div>
+        <!-- </div> -->
         <div class="checkbox">
             <label>
             <input type="checkbox" checked="checked"/><i class="helper"></i>I consent the issue
             </label>
         </div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
             <label>
             <input type="checkbox"/><i class="helper"></i>Oil Refilled
             </label>
-        </div>
+        </div> -->
         <div class="form-radio">
             <div class="radio">
             <label>
@@ -81,11 +102,11 @@
             </label>
             </div>
         </div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
             <label>
             <input type="checkbox"/><i class="helper"></i>I agree this will be added to the database
             </label>
-        </div>
+        </div> -->
         </form>
         <div class="button-container">
             <button type="button" id="submit_sheet_data" class="button" onclick="read_data_for_len()"><span>Submit</span></button>

@@ -60,15 +60,17 @@ function read_data_for_len() {
 
 
 function submit_sheet_data(all_data) {
-  let vehicle_no = document.getElementById("vehicle_no").value;
-  let issue = document.getElementById("issue").value;
-  let oiling = document.getElementById("oiling").value;
+  let date = document.getElementById("date").value;
+  let desc = document.getElementById("desc").value;
+  let work = document.getElementById("work").value;
+  let estimate = document.getElementById("estimate").value;
+  let spare = document.getElementById("spare").value;
+  let labor = document.getElementById("labor").value;
+  let total = document.getElementById("total").value;
 
-  // console.log("Vehicle_no: ", vehicle_no);
-  // console.log("Issue: ", issue);
-  // console.log("Oiling: ", oiling);
+  console.log("Date: ", date, "Desc: ", desc, "Work: ", work, "Estimate: ", estimate, "Spare: ", spare, "Labor: ", labor, "Total: ", total);
 
-  row = [[vehicle_no, issue, oiling],];
+  row = [[date, desc, work, estimate, spare, labor, total],];
   // let all_data = read_data();
   // console.log("All Data: ", all_data);
   let last_row = all_data.values.length;

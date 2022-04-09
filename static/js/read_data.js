@@ -51,13 +51,13 @@ function processResult(data) {
 
     // console.log("Vehicle Details: ", vh_details);
     // console.log("Assignment Details: ", assignment_details);
-    console.log("Insurance Details: ", insurance_details);
-    console.log("Fitness Details: ", fitness_details);
-    console.log("Permit Details: ", permit_details);
-    console.log("PUC Details: ", puc_details);
-    console.log("Battery Details: ", battery_details);
-    console.log("Tyre Details: ", tyre_details);
-    console.log("Maintenance Records: ", maintenance_records);
+    // console.log("Insurance Details: ", insurance_details);
+    // console.log("Fitness Details: ", fitness_details);
+    // console.log("Permit Details: ", permit_details);
+    // console.log("PUC Details: ", puc_details);
+    // console.log("Battery Details: ", battery_details);
+    // console.log("Tyre Details: ", tyre_details);
+    // console.log("Maintenance Records: ", maintenance_records);
 
     // Vehicle Details
     update_rec(vh_num, "vh_num");
@@ -65,9 +65,9 @@ function processResult(data) {
     update_rec(age, "age");
     update_rec(vh_details.slice(1)[0][2], "model");
     update_rec(vh_details.slice(1)[0][5], "enginecc");
-    console.log(vh_details.slice(1)[3][8]);
+    // console.log(vh_details.slice(1)[3][8]);
     if (vh_details.slice(1)[3][8] !== undefined) {
-        console.log("Undefined!");
+        // console.log("Undefined!");
         update_rec(vh_details.slice(1)[3][8], "mileage");
     }
     update_rec(vh_details.slice(1)[1][2], "engine_number");
@@ -145,37 +145,15 @@ function processResult(data) {
 
     // Maintenance Records
     update_maintennce_records(maintenance_records.slice(2));
-    // vehicle_dets(maintenance_records.slice(1), "maintenance_records");
-    // update_rec(maintenance_records.slice(1)[0][2], "campus_assigned");
-    // update_rec(maintenance_records.slice(1)[1][2], "operation_incharge");
-    // update_rec(maintenance_records.slice(1)[1][6], "mobile_incharge");
-    // update_rec(maintenance_records.slice(1)[2][2], "driver1");
-    // update_rec(maintenance_records.slice(1)[3][2], "driver2");
-    // update_rec(maintenance_records.slice(1)[2][6], "mobile1");
-    // update_rec(maintenance_records.slice(1)[3][6], "mobile2");
-    // update_rec(maintenance_records.slice(1)[4][2], "officer_assigned1");
-    // update_rec(maintenance_records.slice(1)[5][2], "officer_assigned2");
-    // update_rec(maintenance_records.slice(1)[4][6], "mobile_officer1");
-    // update_rec(maintenance_records.slice(1)[5][6], "mobile_officer2");
-    
 }
 
 function update_rec(details, id_) {
     let fetch_id = document.getElementById(id_);
-    // console.log("Fetch ID: ", fetch_id, "Details: ", details);
-
     fetch_id.innerText = details;
 }
 
 function update_maintennce_records(maintenance_records) {
-
-    // 0: (9) ['12/21/2021', 'RH Drum, A/C GAS CHARGING & L.C', '', '', 'LALU AUTOMOBILES', '', 'रु 4,900.00', 'रु 100.00', 'रु 5,000.00']
-    // 1: (9) ['11/2/2021', 'WORK DONE', '', '', 'BACK ON DUTY', '', '', '', '']
-    // 2: (9) ['11/1/2021', 'GLOW PLUG SET', '', '', 'LALU AUTOMOBILES', '', 'रु 1,844.00', 'रु 200.00', 'रु 2,044.00']
-    // 3: (9) ['10/30/2021', 'BATTERY REPLACEMENT', '', '', 'OHMS & COMPANY', '', 'रु 4,900.00', '', 'रु 4,900.00']
-    // 4: (9) ['10/23/2021', 'DRIVER DOOR LOCK, RR BUMP- FIBER MOLDING, INSIDE STRECHER STEEL COLOUR, & L-C', '', '', 'RAMESWAR BODY BUILDERS', '', 'रु 4,189.00', 'रु 2,242.00', 'रु 6,431.00']
-
-    console.log("Maintenance Records: ", maintenance_records);
+    // console.log("Maintenance Records: ", maintenance_records);
     let tbody_mr = document.getElementById("tbody_mr");
 
     for (let i = 0; i < maintenance_records.length; i++) {
@@ -215,8 +193,6 @@ function update_maintennce_records(maintenance_records) {
         tr.appendChild(td_tot);
 
         tbody_mr.appendChild(tr);
-
-        // console.log(`Maintenance Record: ${i}`, maintenance_records[i]);
     }
 
 }

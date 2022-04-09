@@ -225,6 +225,14 @@ function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
+// let maintenance_records = document.querySelector(".maintenance_records");
+// maintenance_records.addEventListener('wheel', (e) => {
+//     if (e.shiftKey){
+//         e.preventDefault();
+//         maintenance_records.scrollLeft;
+//     }
+// })
+
 async function search_vehicle() {
     search_val = document.getElementById("search").value;
     if (search_val != "") {

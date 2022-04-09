@@ -60,7 +60,6 @@ function processResult(data) {
     console.log("Maintenance Records: ", maintenance_records);
 
     // Vehicle Details
-    // vehicle_dets(vh_details.slice(1), "vehicle_det");
     update_rec(vh_num, "vh_num");
     update_rec(reg_date, "reg_date");
     update_rec(age, "age");
@@ -78,7 +77,6 @@ function processResult(data) {
     update_rec(vh_details.slice(1)[3][5], "odometer_reading");
     
     // Assignment Details
-    // vehicle_dets(assignment_details.slice(1), "assign_det");
     update_rec(assignment_details.slice(1)[0][2], "campus_assigned");
     update_rec(assignment_details.slice(1)[1][2], "operation_incharge");
     update_rec(assignment_details.slice(1)[1][6], "mobile_incharge");
@@ -92,7 +90,6 @@ function processResult(data) {
     update_rec(assignment_details.slice(1)[5][6], "mobile_officer2");
     
     // Insurance Details
-    // vehicle_dets(insurance_details.slice(1), "insurance_det");
     update_rec(insurance_details.slice(1)[0][2], "insuring_company");
     update_rec(insurance_details.slice(1)[0][5], "policy_no");
     update_rec(insurance_details.slice(1)[1][2], "insurance_type");
@@ -103,7 +100,6 @@ function processResult(data) {
     update_rec(insurance_details.slice(1)[2][9], "months");
 
     // Fitness Details
-    // vehicle_dets(fitness_details.slice(1), "fitness_det");
     update_rec(fitness_details.slice(1)[0][2], "fitness_friquency");
     update_rec(fitness_details.slice(1)[0][5], "fit_valid_from");
     update_rec(fitness_details.slice(1)[1][5], "fit_valid_to");
@@ -111,31 +107,25 @@ function processResult(data) {
     update_rec(fitness_details.slice(1)[1][9], "months");
 
     // Permit Details
-    // vehicle_dets(permit_details.slice(1), "permit_det");
     update_rec(permit_details.slice(1)[0][2], "type");
-    // update_rec(permit_details.slice(1)[0][4], "");
     update_rec(permit_details.slice(1)[0][5], "per_valid_from");
     update_rec(permit_details.slice(1)[1][5], "per_valid_to");
     update_rec(permit_details.slice(1)[1][7], "per_due");
     update_rec(permit_details.slice(1)[1][9], "months");
 
     // PUC Details
-    // vehicle_dets(puc_details.slice(1), "puc_det");
     update_rec(puc_details.slice(1)[0][0], "puc");
     update_rec(puc_details.slice(1)[0][2], "puc_valid_from");
     update_rec(puc_details.slice(1)[0][5], "puc_valid_to");
     update_rec(puc_details.slice(1)[0][7], "puc_due");
 
     // Battery Details
-    // vehicle_dets(battery_details.slice(1), "battery_det");
     update_rec(battery_details.slice(1)[0][2], "battery_spec");
     update_rec(battery_details.slice(1)[1][2], "installed_battery_brand");
-    // update_rec(battery_details.slice(1)[1][6], "warrenty");
     update_rec(battery_details.slice(1)[1][6], "battery_valid_from");
     update_rec(battery_details.slice(1)[2][6], "battery_valid_to");
 
     // Tyre Details
-    // vehicle_dets(tyre_details.slice(1), "tyre_det");
     update_rec(tyre_details.slice(1)[0][2], "tyre_size_spec");
     update_rec(tyre_details.slice(1)[1][2], "tyre_chagne_frequency");
     update_rec(tyre_details.slice(1)[2][3], "curent_tyre_brand");
@@ -154,6 +144,7 @@ function processResult(data) {
     update_rec(tyre_details.slice(1)[6][0], "tyre_date_bl");
 
     // Maintenance Records
+    update_maintennce_records(maintenance_records.slice(2));
     // vehicle_dets(maintenance_records.slice(1), "maintenance_records");
     // update_rec(maintenance_records.slice(1)[0][2], "campus_assigned");
     // update_rec(maintenance_records.slice(1)[1][2], "operation_incharge");
@@ -167,57 +158,72 @@ function processResult(data) {
     // update_rec(maintenance_records.slice(1)[4][6], "mobile_officer1");
     // update_rec(maintenance_records.slice(1)[5][6], "mobile_officer2");
     
-
-
 }
 
 function update_rec(details, id_) {
     let fetch_id = document.getElementById(id_);
-    console.log("Fetch ID: ", fetch_id, "Details: ", details);
+    // console.log("Fetch ID: ", fetch_id, "Details: ", details);
 
     fetch_id.innerText = details;
 }
 
-function vehicle_dets(vh_det, name) {
-    console.log("Vehicle Details: ", vh_det);
-    let vehicle_det = document.getElementById(name);
+function update_maintennce_records(maintenance_records) {
 
-    // document.getElementsByClassName(".vh_det_div").forEach(element => {
-        
-    // });
+    // 0: (9) ['12/21/2021', 'RH Drum, A/C GAS CHARGING & L.C', '', '', 'LALU AUTOMOBILES', '', 'रु 4,900.00', 'रु 100.00', 'रु 5,000.00']
+    // 1: (9) ['11/2/2021', 'WORK DONE', '', '', 'BACK ON DUTY', '', '', '', '']
+    // 2: (9) ['11/1/2021', 'GLOW PLUG SET', '', '', 'LALU AUTOMOBILES', '', 'रु 1,844.00', 'रु 200.00', 'रु 2,044.00']
+    // 3: (9) ['10/30/2021', 'BATTERY REPLACEMENT', '', '', 'OHMS & COMPANY', '', 'रु 4,900.00', '', 'रु 4,900.00']
+    // 4: (9) ['10/23/2021', 'DRIVER DOOR LOCK, RR BUMP- FIBER MOLDING, INSIDE STRECHER STEEL COLOUR, & L-C', '', '', 'RAMESWAR BODY BUILDERS', '', 'रु 4,189.00', 'रु 2,242.00', 'रु 6,431.00']
 
-    // vehicle_det.removeChild();
+    console.log("Maintenance Records: ", maintenance_records);
+    let tbody_mr = document.getElementById("tbody_mr");
 
-    // for (let i = 0; i < vh_det.length; i++) {
-    //     let vh_det_row = document.createElement("div");
-    //     vh_det_row.style.display = "flex";
-    //     vh_det_row.style.flexDirection = "row";
+    for (let i = 0; i < maintenance_records.length; i++) {
+        let tr = document.createElement("tr");
 
-    //     for (let j = 0; j < vh_det[i].length; j++) {
-    //         var vh_det_div = "";
-    //         if (document.querySelector("vh_det_div") != null) {
-    //             vh_det_div = document.querySelector("vh_det_div");
-    //         } else {
-    //             vh_det_div = document.createElement("div");
-    //         }
-            
-    //         vh_det_div.classList.add("vh_det_div");
-    //         vh_det_div.innerHTML = vh_det[i][j];
-    //         vh_det_div.style.margin = "0px 4px";
-    //         vh_det_div.style.font_size = "28px";
-    //         vh_det_row.appendChild(vh_det_div);
-    //     }
-    //     vehicle_det.appendChild(vh_det_row);
-    // }
+        let td_date = document.createElement("td");
+        let td_des = document.createElement("td");
+        let td_work = document.createElement("td");
+        let td_est = document.createElement("td");
+        let td_spare = document.createElement("td");
+        let td_labor = document.createElement("td");
+        let td_tot = document.createElement("td");
+
+        td_date.classList.add("td_");
+        td_des.classList.add("td_");
+        td_des.classList.add("des_");
+        td_work.classList.add("td_");
+        td_est.classList.add("td_");
+        td_spare.classList.add("td_");
+        td_labor.classList.add("td_");
+        td_tot.classList.add("td_");
+
+        td_date.innerText = maintenance_records[i][0];
+        td_des.innerText = maintenance_records[i][1];
+        td_work.innerText = maintenance_records[i][4];
+        td_est.innerText = maintenance_records[i][5];
+        td_spare.innerText = maintenance_records[i][6];
+        td_labor.innerText = maintenance_records[i][7];
+        td_tot.innerText = maintenance_records[i][8];
+
+        tr.appendChild(td_date);
+        tr.appendChild(td_des);
+        tr.appendChild(td_work);
+        tr.appendChild(td_est);
+        tr.appendChild(td_spare);
+        tr.appendChild(td_labor);
+        tr.appendChild(td_tot);
+
+        tbody_mr.appendChild(tr);
+
+        // console.log(`Maintenance Record: ${i}`, maintenance_records[i]);
+    }
+
 }
 
-// function assignment_dets(assignment_det) {
-    
-// }
-
-// function insurance_dets(insurance_det) {
-    
-// }
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 
 async function search_vehicle() {
     search_val = document.getElementById("search").value;

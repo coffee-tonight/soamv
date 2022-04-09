@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="static/css/read_data.css">
+    <link rel="stylesheet" href="static/css/table_design.css">
     <link rel="stylesheet" href="static/css/loading.css">
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
@@ -357,7 +358,35 @@
     <!-- Maintenance Records   Array(2) -->
     <div class="maintenance_records inner_d" id="maintenance_records">
         <h2>Maintenance Records</h2>
-        <div class="vh-content">
+        <div class="maintenance_records">
+        <!-- <h2 class="aa_h2">HTML Table</h2> -->
+            <table class="table_">
+              <thead class="thead_">
+                <tr>
+                  <th class="th_">Date</th>
+                  <th class="th_ des_">Description</th>
+                  <th class="th_">Workshop/Mechanic</th>
+                  <th class="th_">Estimate</th>
+                  <th class="th_" style="min-width: 150px;">Spare Cost (Rs.)</th>
+                  <th class="th_">Labor (Rs.)</th>
+                  <th class="th_">Total (Rs.)</th>
+                </tr>
+              </thead>
+              <tbody class="tbody_" id="tbody_mr">
+                <!-- <tr>
+                  <td class="td_">3/26/2022 </td>
+                  <td class="td_ des_">G/ plug, Air Filter, Loweer arm Assy, Tie rod end, Stering ball joint, Fr. Strut kit, Injecter wash, Coil assy, Front strut Repairing&L.C (318278)</td>
+                  <td class="td_">lalu Automobiles</td>
+                  <td class="td_"> </td>
+                  <td class="td_">9849</td>
+                  <td class="td_">1500</td>
+                  <td class="td_">11349</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        <!-- <div class="include-html" include-html="table.html"></div> -->
+        <!-- <div class="vh-content">
             <div class="vh-det">
                 <h3>Date  </h3>
                 <p id="date">1/27/2022</p>
@@ -406,7 +435,7 @@
                 <h3>Total  </h3>
                 <p id="total">रु 400.00</p>
             </div>
-        </div>
+        </div> -->
     </div>
     </div>
 
@@ -419,5 +448,34 @@
 
     <script src="static/js/handle_suggestions.js"></script>
     <script src="static/js/read_data.js"></script>
+    <!-- <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /* Loop through a collection of all HTML elements: */
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("include-html");
+            if (file) {
+              /* Make an HTTP request using the attribute value as the file name: */
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /* Remove the attribute, and call this function once more: */
+                  elmnt.removeAttribute("include-html");
+                  includeHTML();
+                }
+              }
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /* Exit the function: */
+              return;
+            }
+          }
+        }
+    </script> -->
 </body>
 </html>

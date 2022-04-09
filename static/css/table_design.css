@@ -1,0 +1,83 @@
+
+.aa_h2 {
+    font: 100 5rem/1 Roboto;
+    text-transform: uppercase;
+  }
+  
+.table_ {
+  /* background: #ff9a9a; */
+  background: transparent;
+  border-radius: 20px;
+  display: table;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+}
+  tr {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #fff;
+    padding: 1.5rem;
+    width: 50%;
+  }
+  .th_ {
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #fff;
+  }
+  .des_ {
+      min-width: 350px;
+  }
+
+  .thead_ {
+    display: table-header-group;
+    text-align: center;
+    margin: auto;
+    border: 1px solid #ffff;
+    padding: 1rem;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .tbody {
+    display: table-row-group;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .td_,
+  .th {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #fff;
+    padding: 1rem;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  
+  .table_ {
+    margin: auto;
+    border: none;
+    padding: 0;
+    margin-bottom: 5rem;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .maintenance_records {
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+  }
+  .maintenance_records::-webkit-scrollbar {
+      display: none;
+  }

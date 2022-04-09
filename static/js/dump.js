@@ -106,3 +106,38 @@ Maintenance_Records = [Array(1), Array(9), Array(9), Array(9)]
 // 5: (6) ['10/9/2020', 'FL', 'APOLLO', '', '', '0']
 // 6: (6) ['1/22/2019', 'RR', 'APOLLO', '', '', '0']
 // 7: (6) ['1/22/2019', 'RL', 'APOLLO', '', '', '0']
+
+
+
+// function vehicle_dets(vh_det, name) {
+//     console.log("Vehicle Details: ", vh_det);
+//     let vehicle_det = document.getElementById(name);
+
+//     document.getElementsByClassName(".vh_det_div").forEach(element => {
+        
+//     });
+
+//     vehicle_det.removeChild();
+
+//     for (let i = 0; i < vh_det.length; i++) {
+//         let vh_det_row = document.createElement("div");
+//         vh_det_row.style.display = "flex";
+//         vh_det_row.style.flexDirection = "row";
+
+//         for (let j = 0; j < vh_det[i].length; j++) {
+//             var vh_det_div = "";
+//             if (document.querySelector("vh_det_div") != null) {
+//                 vh_det_div = document.querySelector("vh_det_div");
+//             } else {
+//                 vh_det_div = document.createElement("div");
+//             }
+            
+//             vh_det_div.classList.add("vh_det_div");
+//             vh_det_div.innerHTML = vh_det[i][j];
+//             vh_det_div.style.margin = "0px 4px";
+//             vh_det_div.style.font_size = "28px";
+//             vh_det_row.appendChild(vh_det_div);
+//         }
+//         vehicle_det.appendChild(vh_det_row);
+//     }
+// }

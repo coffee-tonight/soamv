@@ -3,7 +3,8 @@
 // API Key: AIzaSyAPEZM-uh2f57W9BaQ4p4mWCb2-_LyL55g
 
 // Your API KEY AIzaSyA2t3evClUKvKsgbXOBrAaqfLuIHjiJC3k
-const sheetId = '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg';
+// const sheetId = '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg';
+const sheetId = '16Sw_vF06dEUQ5xmRDrxWFuKqR5O3bX-OTGx83v9nlY0';
 
 let sheets = [
   "OR 02 BH 7644",
@@ -187,7 +188,8 @@ for (let i = 0; i<sheets.length; i++) {
 function read_data_for_len() {
   let vehicle_no = document.getElementById("vehicle_no").value;
   var params = {
-    spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg', // TODO: Update placeholder value.
+    // spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg', // TODO: Update placeholder value.
+    spreadsheetId: '16Sw_vF06dEUQ5xmRDrxWFuKqR5O3bX-OTGx83v9nlY0', // TODO: Update placeholder value.
     range: vehicle_no,
   };
   var request = gapi.client.sheets.spreadsheets.values.get(params);

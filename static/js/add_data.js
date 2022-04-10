@@ -266,9 +266,14 @@ function write_data(values, range) {
   }).then((response) => {
    var result = response.result;
     console.log(`${result.updatedCells} cells updated.`);
-    document.getElementById("vehicle_no").value = "";
-    document.getElementById("issue").value = "";
-    document.getElementById("oiling").value = "";
+    // document.getElementById("vehicle_no").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("work").value = "";
+    document.getElementById("estimate").value = "";
+    document.getElementById("spare").value = "";
+    document.getElementById("labor").value = "";
+    document.getElementById("total").value = "";
 
     alert("Cool! Added the data, anything else?");
   });

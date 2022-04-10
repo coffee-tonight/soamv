@@ -214,18 +214,51 @@ function submit_sheet_data(all_data) {
   console.log("Date: ", date, "Desc: ", desc, "Work: ", work, "Estimate: ", estimate, "Spare: ", spare, "Labor: ", labor, "Total: ", total);
 
   row = [[date, desc, "", "", work, estimate, spare, labor, total],];
-  // let all_data = read_data();
-  console.log("All Data: ", all_data);
   let last_row = all_data.values.length;
-  console.log("Last row: ", last_row);
-  let range = `${vehicle_no.value}!A${last_row+1}:J${last_row+1}`;
-  let values = {values: row};
+  // let merge_range = `${vehicle_no.value}!B${last_row+1}:D${last_row+1}`;
+  let merge_req = [{
+    "mergeCells": {
+        "range": {
+          "sheetId": sheetId,
+          "startRowIndex": last_row,
+          "endRowIndex": last_row+1,
+          "startColumnIndex": 1,
+          "endColumnIndex": 4
+        },
+        "mergeType": "MERGE_ALL"
+      }
+    },
+  ];
+  // let all_data = read_data();
+  // console.log("All Data: ", all_data);
+  // console.log("Last row: ", last_row);
+  // let range = `${vehicle_no.value}!A${last_row+1}:J${last_row+1}`;
+  let range = `${vehicle_no.value}!A53:J53`;
+  let values = {values: row, requests: merge_req};
   console.log("Range: ", range, "Values: ", values);
   write_data(values, range);
 }
 
+// function write_data(values, range) {
+//   gapi.client.sheets.spreadsheets.values.update({
+//     spreadsheetId: sheetId,
+//     range: range,
+//     valueInputOption: "USER_ENTERED",
+//     resource: values
+//   }).then((response) => {
+//    var result = response.result;
+//     console.log(`${result.updatedCells} cells updated.`);
+//     document.getElementById("vehicle_no").value = "";
+//     document.getElementById("issue").value = "";
+//     document.getElementById("oiling").value = "";
+
+//     alert("Cool! Added the data, anything else?");
+//   });
+// }
+
 function write_data(values, range) {
-  gapi.client.sheets.spreadsheets.values.update({
+  log("Range: ", range, "Values: ", values);
+  gapi.client.sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
     range: range,
     valueInputOption: "USER_ENTERED",

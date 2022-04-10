@@ -216,7 +216,7 @@ function submit_sheet_data(all_data) {
   console.log("All Data: ", all_data);
   let last_row = all_data.values.length;
   console.log("Last row: ", last_row);
-  let range = `${vehicle_no}!A${last_row+1}:C${last_row+1}`;
+  let range = `${vehicle_no}!A${last_row+1}:J${last_row+1}`;
   let values = {values: row};
   console.log("Range: ", range, "Values: ", values);
   write_data(values, range);

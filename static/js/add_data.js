@@ -274,37 +274,37 @@ function write_data(values, range) {
   });
 }
 
-function populateSheet(result) {
-  let array_rows = result.values.length;
-  console.log("Arrays_rows: ", array_rows);
-  var par_table = document.getElementById("parent_table");
+// function populateSheet(result) {
+//   let array_rows = result.values.length;
+//   console.log("Arrays_rows: ", array_rows);
+//   var par_table = document.getElementById("parent_table");
 
-  var table = document.createElement("TABLE");
-  table.setAttribute("id", "data_table");
-  table.border = 1;
+//   var table = document.createElement("TABLE");
+//   table.setAttribute("id", "data_table");
+//   table.border = 1;
 
-  var tableBody = document.createElement("TBODY");
-  table.appendChild(tableBody);
+//   var tableBody = document.createElement("TBODY");
+//   table.appendChild(tableBody);
 
-  console.log("Values: ", result.values); 
-  for(var row=0; row<array_rows; row++) {
-    var tr = document.createElement("TR");
-    tableBody.appendChild(tr);
+//   console.log("Values: ", result.values); 
+//   for(var row=0; row<array_rows; row++) {
+//     var tr = document.createElement("TR");
+//     tableBody.appendChild(tr);
 
-    console.log("Row: ", result.values[row]);
+//     console.log("Row: ", result.values[row]);
 
-    result.values[row].forEach(el => {
-      var td = document.createElement("TD");
-      var val = document.createElement("INPUT");
-      val.setAttribute("type", "text");
-      val.setAttribute("value", el);
-      td.appendChild(val);
-      tr.appendChild(td);
-    });
+//     result.values[row].forEach(el => {
+//       var td = document.createElement("TD");
+//       var val = document.createElement("INPUT");
+//       val.setAttribute("type", "text");
+//       val.setAttribute("value", el);
+//       td.appendChild(val);
+//       tr.appendChild(td);
+//     });
 
-    par_table.appendChild(table);
-  }
-}
+//     par_table.appendChild(table);
+//   }
+// }
 
 
 

@@ -216,25 +216,25 @@ function submit_sheet_data(all_data) {
   row = [[date, desc, "", "", work, estimate, spare, labor, total],];
   let last_row = all_data.values.length;
   // let merge_range = `${vehicle_no.value}!B${last_row+1}:D${last_row+1}`;
-  let merge_req = [{
-    "mergeCells": {
-        "range": {
-          "sheetId": sheetId,
-          "startRowIndex": last_row,
-          "endRowIndex": last_row+1,
-          "startColumnIndex": 1,
-          "endColumnIndex": 4
-        },
-        "mergeType": "MERGE_ALL"
-      }
-    },
-  ];
+  // let merge_req = [{
+  //   "mergeCells": {
+  //       "range": {
+  //         "sheetId": sheetId,
+  //         "startRowIndex": last_row,
+  //         "endRowIndex": last_row+1,
+  //         "startColumnIndex": 1,
+  //         "endColumnIndex": 4
+  //       },
+  //       "mergeType": "MERGE_ALL"
+  //     }
+  //   },
+  // ];
   // let all_data = read_data();
   // console.log("All Data: ", all_data);
   // console.log("Last row: ", last_row);
   // let range = `${vehicle_no.value}!A${last_row+1}:J${last_row+1}`;
   let range = `${vehicle_no.value}!A53:J53`;
-  let values = {values: row, requests: merge_req};
+  let values = {values: row};
   console.log("Range: ", range, "Values: ", values);
   write_data(values, range);
 }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+        html,
+        body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Roboto Mono", monospace;
+        }
+        button {
+        margin: 50px;
+        font-family: inherit;
+        min-width: 400px;
+        }
+
+        /* Fill button styling */
+        .fill {
+        font-size: 20px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        padding: 13px 50px 13px;
+        outline: 0;
+        border: 1px solid black;
+        cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+        }
+
+        .fill::after {
+        content: "";
+        background-color: #ffe54c;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+        }
+
+        .fill:hover::after {
+        top: 0px;
+        left: 0px;
+        }
+        /* End of Fill Button  */
+
+        /* Slide button styling */
+        .slide {
+        font-size: 20px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        padding: 13px 30px 13px;
+        outline: 0;
+        border: 1px solid black;
+        cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+        }
+
+        .slide i {
+        opacity: 0;
+        font-size: 13px;
+        transition: 0.2s;
+        position: absolute;
+        right: 10px;
+        top: 21px;
+        transition: transform 1;
+        }
+
+        .slide div {
+        transition: transform 0.8s;
+        }
+
+        .slide:hover div {
+        transform: translateX(-6px);
+        }
+
+        .slide::after {
+        content: "";
+        background-color: #66f2d5;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        }
+
+        .slide:hover i {
+        opacity: 1;
+        transform: translateX(-6px);
+        }
+    </style>
+    
+    <script src="static/js/login.js"></script>
+    <script src="static/js/userState.js"></script>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet" />
+
+
+    <button type="button" class="fill btn_" onclick="window.location = 'update_gen.html'">Update Details</button>
+
+    <button type="button" class="slide btn_" onclick="window.location = 'add_data.html'">
+    <div>Add Maintenance Records</div>
+    <i class="icon-arrow-right"></i>
+    </button>
+</body>
+</html>

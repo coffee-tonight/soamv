@@ -257,7 +257,7 @@ function submit_sheet_data(all_data) {
 // }
 
 function write_data(values, range) {
-  log("Range: ", range, "Values: ", values);
+  console.log("Range: ", range, "Values: ", values);
   gapi.client.sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
     range: range,

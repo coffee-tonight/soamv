@@ -2,25 +2,17 @@ let content = document.getElementById("cover");
 const sheetId = "1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg"
 
 async function read_vehicle_data(vh_num) {
-    // var sheet = sheetName[vh_num]
-    // console.log(sheet);
     let loading = document.querySelector(".spinner-box");
-    // let show_data = document.querySelector(".show_data");
-
     loading.style.display = "flex";
-    // show_data.style.display = "none";
 
     var params = {
-        // spreadsheetId: '1_WKqPRuOArfiQ0JeUuiooz67vjCsoLDYA7xuT2izycg',
         spreadsheetId: '16Sw_vF06dEUQ5xmRDrxWFuKqR5O3bX-OTGx83v9nlY0',
-        // range: sheet,
         range: vh_num,
     };
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
         console.log(`Result Fetched for ${vh_num}: `, response.result);
-        // show_data.style.display = "block";
         loading.style.display = "none";
         processResult(response.result);
     }, function(reason) {
@@ -33,22 +25,26 @@ function processResult(result) {
     console.log("Arrays_rows: ", array_rows);
     var par_table = document.getElementById("update_content");
   
-    var table = document.createElement("TABLE");
+    var table = document.createElement("table");
+    table.classList.add("table_");
     table.setAttribute("id", "data_table");
     table.border = 1;
   
-    var tableBody = document.createElement("TBODY");
+    var tableBody = document.createElement("tbody");
+    tableBody.classList.add("tbody_");
     table.appendChild(tableBody);
   
     console.log("Values: ", result.values); 
     for(var row=0; row<array_rows; row++) {
-      var tr = document.createElement("TR");
+      var tr = document.createElement("tr");
+    //   tr.classList.add("");
       tableBody.appendChild(tr);
   
       console.log("Row: ", result.values[row]);
   
       result.values[row].forEach(el => {
         var td = document.createElement("TD");
+        td.classList.add("td_");
         var val = document.createElement("INPUT");
         val.setAttribute("type", "text");
         val.setAttribute("value", el);
@@ -62,6 +58,7 @@ function processResult(result) {
 
 async function search_vehicle() {
     search_val = document.getElementById("search").value;
+    let content = document.getElementById("searchBox");
     if (search_val != "") {
         console.log("Hey! I'm in search_vehicle()", content);
         content.style.position = "absolute";

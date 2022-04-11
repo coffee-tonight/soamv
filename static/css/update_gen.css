@@ -67,3 +67,24 @@ body {
 }
 }
 
+.update_content {
+    width: 100%;
+    position: relative;
+    top: 200px;
+
+}
+.input_ {
+    width: 150px;
+    min-width: 50px;
+    background: transparent;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+}
+.table_ {
+    border: none;
+}
+.td_ {
+    border: none;
+}

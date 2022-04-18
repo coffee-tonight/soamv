@@ -234,13 +234,13 @@
     font-size: 2em;
   }
   .reg_det h2{
-    color: rgb(231, 231, 231);
+    color: rgb(255, 255, 255);
     font-size: 2.6em;
     text-align: center;
     margin: 20px;
   }
   .reg_det p{
-    color: rgb(255, 255, 255);
+    color: rgb(203, 203, 203);
     font-size: 1.1em;
     text-align: center;
     margin: 4px;
@@ -354,7 +354,7 @@
       padding: 0px;
     }
     .inner_d h2{
-      font-size: 2em;
+      font-size: 1.8em;
     }
     .justify_center {
       margin-top: 20px;

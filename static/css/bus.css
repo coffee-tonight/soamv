@@ -10,7 +10,8 @@
     overflow: hidden;
   }
   .bg-img {
-    background-image: url("../img/bg_index.png");
+    /* background-image: url("../img/bg_index.png"); */
+    background: #fff;
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;

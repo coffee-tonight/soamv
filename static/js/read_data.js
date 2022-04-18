@@ -31,7 +31,7 @@ async function read_vehicle_data(vh_num) {
 }
 
 function processResult(data) {
-    // console.log("Data in Process Result: ", data);
+    console.log("Data in Process Result: ", data);
     const values = data.values;
 
     // Decrease the lower limit of the range to ommit the header row
@@ -97,24 +97,24 @@ function processResult(data) {
     update_rec(insurance_details.slice(1)[2][5], "ins_valid_to");
     update_rec(insurance_details.slice(1)[2][2], "insurance_amount");
     update_rec(insurance_details.slice(1)[2][7], "ins_due");
-    update_rec(insurance_details.slice(1)[2][9], "months");
+    // update_rec(insurance_details.slice(1)[2][9], "months");
 
     // Fitness Details
     update_rec(fitness_details.slice(1)[0][2], "fitness_friquency");
     update_rec(fitness_details.slice(1)[0][5], "fit_valid_from");
     update_rec(fitness_details.slice(1)[1][5], "fit_valid_to");
     update_rec(fitness_details.slice(1)[1][7], "fit_due");
-    update_rec(fitness_details.slice(1)[1][9], "months");
+    // update_rec(fitness_details.slice(1)[1][9], "months");
 
     // Permit Details
     update_rec(permit_details.slice(1)[0][2], "type");
     update_rec(permit_details.slice(1)[0][5], "per_valid_from");
     update_rec(permit_details.slice(1)[1][5], "per_valid_to");
     update_rec(permit_details.slice(1)[1][7], "per_due");
-    update_rec(permit_details.slice(1)[1][9], "months");
+    // update_rec(permit_details.slice(1)[1][9], "months");
 
     // PUC Details
-    update_rec(puc_details.slice(1)[0][0], "puc");
+    // update_rec(puc_details.slice(1)[0][0], "puc");
     update_rec(puc_details.slice(1)[0][2], "puc_valid_from");
     update_rec(puc_details.slice(1)[0][5], "puc_valid_to");
     update_rec(puc_details.slice(1)[0][7], "puc_due");
@@ -126,22 +126,30 @@ function processResult(data) {
     update_rec(battery_details.slice(1)[2][6], "battery_valid_to");
 
     // Tyre Details
+    console.log("Tyre Specific: ", tyre_details.slice(1));
     update_rec(tyre_details.slice(1)[0][2], "tyre_size_spec");
-    update_rec(tyre_details.slice(1)[1][2], "tyre_chagne_frequency");
-    update_rec(tyre_details.slice(1)[2][3], "curent_tyre_brand");
-    update_rec(tyre_details.slice(1)[3][4], "ofr");
-    update_rec(tyre_details.slice(1)[4][4], "ofl");
-    update_rec(tyre_details.slice(1)[5][4], "obr");
-    update_rec(tyre_details.slice(1)[6][4], "obl");
-    update_rec(tyre_details.slice(1)[3][5], "rfr");
-    update_rec(tyre_details.slice(1)[4][5], "rfl");
-    update_rec(tyre_details.slice(1)[5][5], "rbr");
-    update_rec(tyre_details.slice(1)[6][5], "rbl");
+    // update_rec(tyre_details.slice(1)[1][2], "tyre_chagne_frequency");
+    // update_rec(tyre_details.slice(1)[2][3], "curent_tyre_brand");
+    update_rec(tyre_details.slice(1)[3][2], "fr");
+    update_rec(tyre_details.slice(1)[3][0], "frdt");
+    update_rec(tyre_details.slice(1)[4][2], "fl");
+    update_rec(tyre_details.slice(1)[4][0], "fldt");
+    update_rec(tyre_details.slice(1)[5][2], "rr");
+    update_rec(tyre_details.slice(1)[5][0], "rrdt");
+    update_rec(tyre_details.slice(1)[6][2], "rl");
+    update_rec(tyre_details.slice(1)[6][0], "rldt");
+    // update_rec(tyre_details.slice(1)[7][2], "rr2");
+    // update_rec(tyre_details.slice(1)[7][0], "rr2dt");
+    // update_rec(tyre_details.slice(1)[8][2], "rl2");
+    // update_rec(tyre_details.slice(1)[8][0], "rl2dt");
 
-    update_rec(tyre_details.slice(1)[3][0], "tyre_date_fr");
-    update_rec(tyre_details.slice(1)[4][0], "tyre_date_fl");
-    update_rec(tyre_details.slice(1)[5][0], "tyre_date_br");
-    update_rec(tyre_details.slice(1)[6][0], "tyre_date_bl");
+    // 38: ['Tyre Details :']
+    // 39: (3) ['', 'Tyre Size Spec :', '155/65R14 3G']
+    // 40: (2) ['', 'Tyre Chagne Frequency :']
+    // 41: (6) ['', '', 'Curent Tyre Brand', '', 'Odometer at Change', 'Replacement Due']
+    // 42: (6) ['10/9/2020', 'FR', '155/65R14 Apollo TL Tyr', '', '151581', '151581']
+    // 43: (6) ['10/9/2020', 'FL', 'APOLLO', '', '', '0']
+    // 44: (6) ['1/22/2019', 'RR', 'APOLLO', '', '', '0']
 
     // Maintenance Records
     update_maintennce_records(maintenance_records.slice(2));
@@ -153,7 +161,7 @@ function update_rec(details, id_) {
 }
 
 function update_maintennce_records(maintenance_records) {
-    // console.log("Maintenance Records: ", maintenance_records);
+    console.log("Maintenance Records: ", maintenance_records);
     let tbody_mr = document.getElementById("tbody_mr");
 
     for (let i = 0; i < maintenance_records.length; i++) {
@@ -162,7 +170,7 @@ function update_maintennce_records(maintenance_records) {
         let td_date = document.createElement("td");
         let td_des = document.createElement("td");
         let td_work = document.createElement("td");
-        let td_est = document.createElement("td");
+        // let td_est = document.createElement("td");
         let td_spare = document.createElement("td");
         let td_labor = document.createElement("td");
         let td_tot = document.createElement("td");
@@ -171,7 +179,7 @@ function update_maintennce_records(maintenance_records) {
         td_des.classList.add("td_");
         td_des.classList.add("des_");
         td_work.classList.add("td_");
-        td_est.classList.add("td_");
+        // td_est.classList.add("td_");
         td_spare.classList.add("td_");
         td_labor.classList.add("td_");
         td_tot.classList.add("td_");
@@ -179,7 +187,7 @@ function update_maintennce_records(maintenance_records) {
         td_date.innerText = maintenance_records[i][0];
         td_des.innerText = maintenance_records[i][1];
         td_work.innerText = maintenance_records[i][4];
-        td_est.innerText = maintenance_records[i][5];
+        // td_est.innerText = maintenance_records[i][5];
         td_spare.innerText = maintenance_records[i][6];
         td_labor.innerText = maintenance_records[i][7];
         td_tot.innerText = maintenance_records[i][8];
@@ -187,7 +195,7 @@ function update_maintennce_records(maintenance_records) {
         tr.appendChild(td_date);
         tr.appendChild(td_des);
         tr.appendChild(td_work);
-        tr.appendChild(td_est);
+        // tr.appendChild(td_est);
         tr.appendChild(td_spare);
         tr.appendChild(td_labor);
         tr.appendChild(td_tot);
